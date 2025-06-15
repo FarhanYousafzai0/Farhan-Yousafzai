@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from '../Components/Home/Nav'
+import Hero from '../Components/Home/Hero'
 
 const Home = () => {
   return (
@@ -7,6 +8,7 @@ const Home = () => {
       <div className='w-screen h-screen overflow-x-hidden'>
 
         <Nav/>
+        <Hero/>
       </div>
     </>
   )

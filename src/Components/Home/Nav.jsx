@@ -12,7 +12,7 @@ const Nav = () => {
     <>
       
       
-      <nav className='flex items-center justify-between h-[60px] rounded-md p-5 relative z-20'>
+      <nav className='flex items-center justify-between h-[60px] text-white rounded-md p-5 relative z-20'>
         {/* Logo */}
         <span className='cursor-pointer'>© Code By Farhan</span>
 
