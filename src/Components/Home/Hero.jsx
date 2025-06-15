@@ -1,22 +1,30 @@
-import { Globe } from 'lucide-react'
+import { ArrowBigUp, Globe } from 'lucide-react'
 import React from 'react'
 import { CiGlobe } from 'react-icons/ci'
+import { MdArrowOutward } from 'react-icons/md'
 
 const Hero = () => {
   return (
-    <div className='relative w-full h-[90vh] flex items-center  '>
+    <div className='relative w-full h-[90vh] flex items-center overflow-hidden  '>
      
-<div className='flex items-center justify-around'>
+<div className='flex  justify-between w-full'>
        <div className=' rounded-r-full h-[100px] bg-black/80 flex items-center w-[300px] p-2 overflow-hidden'>
         <div className='flex items-center justify-between w-full'>
-          <span className='text-lg font-medium mr-4 text-white leading-tight'>
+          <span className='text-lg mr-4 font-light text-white leading-tight'>
             Located<br/>in<br/>Pakistan
           </span>
-          <div className='w-[80px] h-[80px] rounded-full bg-[#999D9E] flex items-center justify-center'>
-            <span className='text-white w-full h-full flex items-center justify-center font-bold'><CiGlobe className='text-6xl' /></span>
-          </div>
+          
         </div>
       </div>
+
+
+     
+
+
+<h1 className='text-4xl font-light text-white mr-20 '>Freelance <br/>
+Designer & Developer</h1>
+
+
 </div>
 
 
