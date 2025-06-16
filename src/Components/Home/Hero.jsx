@@ -3,15 +3,15 @@ import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import React, { useRef, useState } from 'react';
 import { CiGlobe } from 'react-icons/ci';
+import Spline from '@splinetool/react-spline';
 
 // Sample images - replace with your actual project images
 const designImages = [
-   '/Simple.jpg'
-]
-const devImages = [
-'https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1504x1128&vertical=center'
+  '/Simple.jpg'
 ];
-
+const devImages = [
+  'https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1504x1128&vertical=center'
+];
 
 gsap.registerPlugin(SplitText);
 
@@ -22,9 +22,7 @@ const Hero = () => {
 
   useGSAP(() => {
     // Name animation
-    const split = new SplitText(nameRef.current, {
-      type: 'chars',
-    });
+    const split = new SplitText(nameRef.current, { type: 'chars' });
 
     gsap.from(split.chars, {
       y: 100,
@@ -64,9 +62,16 @@ const Hero = () => {
   };
 
   return (
-    <div className='relative w-full h-[70vh] min-h-[700px] overflow-hidden'>
+    <div className='relative w-full h-[100vh] min-h-[700px] overflow-hidden'>
+
+      {/* 🔵 Spline Background */}
+      <div className="absolute inset-0  z-0 pointer-events-none">
+         <Spline scene="https://prod.spline.design/StBJ0bpdJPYqDTIK/scene.splinecode" />
+
+      </div>
+
       {/* Top content */}
-      <div className='flex flex-col md:flex-row justify-between items-center w-full z-10 mt-30'>
+      <div className='relative z-10 flex flex-col md:flex-row justify-between items-center w-full mt-30'>
         {/* Location badge */}
         <div className='rounded-r-full h-[100px] bg-black/80 md:flex hidden items-center w-[250px] p-2 overflow-hidden'>
           <div className='flex items-center justify-between w-full'>
@@ -78,18 +83,18 @@ const Hero = () => {
         </div>
 
         {/* Main heading with hoverable elements */}
-        <h1 className='text-4xl md:text-6xl whitespace-nowrap font-light text-gray-900 text-center md:text-right'>
+        <h1 className='text-4xl md:text-6xl whitespace-nowrap font-light text-gray-900 text-center md:text-right z-10'>
           Freelancer <br />
           <span className='font-medium'>
-            <span 
+            <span
               className='relative inline-block'
               onMouseEnter={() => handleShowcaseHover('design')}
               onMouseLeave={handleShowcaseLeave}
             >
               Designer
             </span>
-            {' '}&{' '}
-            <span 
+            {' '} & {' '}
+            <span
               className='relative inline-block'
               onMouseEnter={() => handleShowcaseHover('dev')}
               onMouseLeave={handleShowcaseLeave}
@@ -101,7 +106,7 @@ const Hero = () => {
       </div>
 
       {/* Name with SplitText animation */}
-      <div className='absolute bottom-10 left-0 w-full overflow-hidden'>
+      <div className='absolute bottom-10 left-0 w-full overflow-hidden z-10'>
         <div className='w-max'>
           <h1
             ref={nameRef}
@@ -112,14 +117,14 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Image showcase (absolute positioned) */}
-      <div 
+      {/* Image showcase */}
+      <div
         ref={showcaseRef}
         className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center"
       >
         <div className="relative w-full h-[60vh] max-w-4xl mx-auto">
           {(activeShowcase === 'design' ? designImages : devImages).map((img, i) => (
-            <div 
+            <div
               key={i}
               className="absolute rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500"
               style={{
@@ -131,9 +136,9 @@ const Hero = () => {
                 filter: 'brightness(0.95)',
               }}
             >
-              <img 
-                src={img} 
-                alt={activeShowcase === 'design' ? `Design project ${i+1}` : `Development project ${i+1}`}
+              <img
+                src={img}
+                alt={activeShowcase === 'design' ? `Design project ${i + 1}` : `Development project ${i + 1}`}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
