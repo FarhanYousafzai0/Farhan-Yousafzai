@@ -71,7 +71,7 @@ const Hero = () => {
       </div>
 
       {/* Top content */}
-      <div className='relative z-10 flex flex-col md:flex-row justify-between items-center w-full mt-30'>
+      <div className='relative z-10 flex flex-col md:flex-row justify-between items-center w-full mt-20 md:mt-30'>
         {/* Location badge */}
         <div className='rounded-r-full h-[100px] bg-black/80 md:flex hidden items-center w-[250px] p-2 overflow-hidden'>
           <div className='flex items-center justify-between w-full'>
