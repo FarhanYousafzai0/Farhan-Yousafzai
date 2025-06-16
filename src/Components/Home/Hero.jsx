@@ -10,7 +10,7 @@ const designImages = [
   '/Simple.jpg'
 ];
 const devImages = [
-  'https://cdn.dribbble.com/userupload/17730954/file/original-1ca571d72aed46b341defcb0bf9a18e1.png?resize=1504x1128&vertical=center'
+  
 ];
 
 gsap.registerPlugin(SplitText);
@@ -65,10 +65,10 @@ const Hero = () => {
     <div className='relative w-full h-[100vh] min-h-[700px] overflow-hidden'>
 
       {/* 🔵 Spline Background */}
-      <div className="absolute inset-0  z-0 pointer-events-none">
+      {/* <div className="absolute inset-0  z-0 pointer-events-none">
          <Spline scene="https://prod.spline.design/StBJ0bpdJPYqDTIK/scene.splinecode" />
 
-      </div>
+      </div> */}
 
       {/* Top content */}
       <div className='relative z-10 flex flex-col md:flex-row justify-between items-center w-full mt-20 md:mt-30'>
