@@ -83,26 +83,29 @@ const Hero = () => {
         </div>
 
         {/* Main heading with hoverable elements */}
-        <h1 className='text-4xl md:text-6xl whitespace-nowrap font-light text-gray-900 text-center md:text-right z-10'>
-          Freelancer <br />
-          <span className='font-medium'>
-            <span
-              className='relative inline-block'
-              onMouseEnter={() => handleShowcaseHover('design')}
-              onMouseLeave={handleShowcaseLeave}
-            >
-              Designer
-            </span>
-            {' '} & {' '}
-            <span
-              className='relative inline-block'
-              onMouseEnter={() => handleShowcaseHover('dev')}
-              onMouseLeave={handleShowcaseLeave}
-            >
-              Developer
-            </span>
-          </span>
-        </h1>
+        <h1 className='text-4xl md:text-6xl mx-5 font-light text-gray-900 text-center md:text-right z-10'>
+  <div className="flex flex-col items-center md:items-end">
+    <span>Freelancer</span>
+    <span className='font-medium'>
+      <span
+        className='relative inline-block'
+        onMouseEnter={() => handleShowcaseHover('design')}
+        onMouseLeave={handleShowcaseLeave}
+      >
+        Designer
+      </span>
+      {' '} & {' '}
+      <span
+        className='relative inline-block'
+        onMouseEnter={() => handleShowcaseHover('dev')}
+        onMouseLeave={handleShowcaseLeave}
+      >
+        Developer
+      </span>
+    </span>
+  </div>
+</h1>
+
       </div>
 
       {/* Name with SplitText animation */}
