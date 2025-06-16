@@ -122,119 +122,97 @@ const Nav = () => {
   return (
     <>
       {/* Blurred Dialog */}
-      <div 
+    <div 
   ref={dialogRef}
-  className="fixed inset-0 w-screen h-screen bg-blue-600 z-10 flex justify-between p-5 overflow-hidden"
+  className="fixed inset-0 w-screen h-screen bg-blue-600 z-50 flex flex-col md:flex-row p-4 md:p-8 overflow-hidden"
 >
-  {/* Top-right close button */}
+  {/* Close Button */}
   <button 
     onClick={toggleDialog}
-    className="absolute top-5 right-5 text-white text-1xl transition duration-300 z-20"
+    className="absolute top-4 right-4 text-white text-lg z-50"
     aria-label="Close"
   >
-    <span className=" cursor-pointer transition duration-500 flex items-center">
-     See You <ChevronUp/>
-    </span>
+    <Magnetic><span className="cursor-pointer flex items-center gap-1">
+      See You <ChevronUp />
+    </span></Magnetic>
   </button>
 
-  {/* Left side - Social links */}
-  <div className='flex flex-col w-full h-full items-start text-white justify-start relative'>
-    <a 
-      href="https://x.com/Farhankhana804" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="group relative text-9xl font-black uppercase hover:text-blue-200 transition duration-300 mb-2"
-    >
-      Twitter
-      <span className="absolute bottom-0 left-0 w-0 h-1 bg-white group-hover:w-full transition-all duration-500"></span>
-    </a>
-    <a 
-      href="https://www.linkedin.com/in/farhan-yousafzai-8a1363352/
-
-" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="group relative text-9xl font-black uppercase hover:text-blue-200 transition duration-300 mb-2"
-    >
-      LinkedIn
-      <span className="absolute bottom-0 left-0 w-0 h-1 bg-white group-hover:w-full transition-all duration-500"></span>
-    </a>
-    <a 
-      href="https://github.com/FarhanYousafzai0" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="group relative text-9xl font-black uppercase hover:text-blue-200 transition duration-300 mb-2"
-    >
-      GitHub
-      <span className="absolute bottom-0 left-0 w-0 h-1 bg-white group-hover:w-full transition-all duration-500"></span>
-    </a>
-    <a 
-      href="https://wa.me/yournumber" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="group relative text-9xl font-black uppercase hover:text-blue-200 transition duration-300 mb-2"
-    >
-      WhatsApp
-      <span className="absolute bottom-0 left-0 w-0 h-1 bg-white group-hover:w-full transition-all duration-500"></span>
-    </a>
-    
-    {/* Additional links - appears on hover */}
-   
+  {/* Left - Social Links */}
+  <div className="w-full md:w-1/2 h-full flex flex-col justify-center items-start text-blue-200  gap-4">
+    {[
+      { name: "Twitter", link: "https://x.com/Farhankhana804" },
+      { name: "LinkedIn", link: "https://www.linkedin.com/in/farhan-yousafzai-8a1363352/" },
+      { name: "GitHub", link: "https://github.com/FarhanYousafzai0" },
+      { name: "WhatsApp", link: "https://wa.me/yournumber" }
+    ].map((social) => (
+      <a
+        key={social.name}
+        href={social.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative uppercase font-black text-4xl sm:text-6xl lg:text-9xl hover:text-black transition duration-300"
+      >
+        {social.name}
+        <span className="absolute bottom-0 left-0 w-0 h-1 bg-white group-hover:w-full transition-all duration-500"></span>
+      </a>
+    ))}
   </div>
 
-  {/* Right side - Bio */}
-  <div className='w-full h-full text-start relative'>
-    <h1 className='text-9xl font-black text-white mb-10'>Why me?</h1>
-    <p className='text-2xl mt-5 max-w-2xl leading-relaxed'>
+  {/* Right - Bio Section */}
+  <div className="w-full md:w-1/2 h-full text-black flex flex-col justify-center items-start mt-10 md:mt-0 px-2 md:px-10 relative">
+    <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black mb-6">Why me?</h1>
+    <p className="text-base sm:text-xl lg:text-2xl max-w-xl leading-relaxed">
       The combination of my passion for design, code & interaction positions me in a unique place in the web design world.
     </p>
-    
-    {/* Contact info */}
-    <div className="absolute bottom-5 right-0 text-right">
-      <p className="text-xl mb-2">coderwithferry@gmail.com</p>
-      <p className="text-xl">+92 31974 21 574</p>
+
+    {/* Contact Info */}
+    <div className="absolute bottom-5 right-5 text-right text-sm sm:text-base">
+      <p className="mb-1">coderwithferry@gmail.com</p>
+      <p>+92 31974 21 574</p>
     </div>
-    
-    {/* Animated cursor circle */}
-    <div className="absolute w-64 h-64 rounded-full border-2 border-white pointer-events-none animate-pulse-slow" 
-      style={{
-        top: '50%',
-        right: '20%',
-        transform: 'translateY(-50%)'
-      }}
+
+    {/* Animated Circles */}
+    <div className="absolute w-32 h-32 sm:w-48 sm:h-48 rounded-full border-2 border-white pointer-events-none animate-pulse"
+      style={{ top: '20%', right: '10%', transform: 'translateY(-50%)' }}
     ></div>
-    <div className="absolute w-64 h-64 rounded-full border-2 border-white pointer-events-none animate-pulse-slow" 
-      style={{
-        top: '60%',
-        right: '50%',
-        transform: 'translateY(-50%)'
-      }}
+    <div className="absolute w-32 h-32 sm:w-48 sm:h-48 rounded-full border-2 border-white pointer-events-none animate-pulse"
+      style={{ top: '65%', right: '40%', transform: 'translateY(-50%)' }}
     ></div>
   </div>
 </div>
 
+
       {/* Navigation */}
-      <nav className='flex items-center justify-between h-[60px] rounded-md p-5 relative '>
+      <nav className='flex items-center justify-between h-[60px] rounded-md p-5 relative  '>
         <div ref={containerRef} className='cursor-pointer text-lg font-medium relative overflow-hidden h-8'>
-          <div className='inline-block overflow-hidden relative'>
+          <Link to='/' className='inline-block overflow-hidden relative'>
             <span ref={codeByRef} className='inline-block'>
               © Code By <span ref={nameRef}>Farhan</span>
             </span>
             <span ref={proDevRef} className='absolute top-0 left-0'>
               Full-Stack Sorcerer
             </span>
-          </div>
+          </Link>
         </div>
 
         <div className='md:flex items-center gap-5 hidden'>
-          <Magnetic><Link to="/" className="hover:text-blue-400 transition duration-300">Home</Link></Magnetic>
-          <Magnetic><Link to="/about" className="hover:text-blue-400 transition duration-300">About</Link></Magnetic>
-          <Magnetic><Link to="/insights" className="hover:text-blue-400 transition duration-300">Insights</Link></Magnetic>
+          <Magnetic><Link to="/work" className=" transition duration-300 relative group">Work
+          
+          <span className='w-[5px] h-[5px] group-hover:opacity-100 opacity-0 absolute transition-all duration-300    -bottom-3 left-1/2 rounded-full bg-black'></span>
+          </Link></Magnetic>
+          <Magnetic><Link to="/about" className=" transition duration-300 relative group">About
+                    <span className='w-[5px] h-[5px] group-hover:opacity-100 opacity-0 absolute transition-all duration-300   -bottom-3 left-1/2 rounded-full bg-black'></span>
+
+          </Link></Magnetic>
+          <Magnetic><Link to="/insights" className=" transition duration-300 relative group">Insights
+                    <span className='w-[5px] h-[5px] group-hover:opacity-100 opacity-0 transition-all duration-300 absolute  -bottom-3 left-1/2 rounded-full bg-black'></span>
+
+          </Link></Magnetic>
         </div>
 
         <Magnetic>
           <button 
-            className='cursor-pointer hover:text-blue-400 transition duration-300'
+            className='cursor-pointer  transition duration-300'
             onClick={toggleDialog}
           >
             Let's Talk
